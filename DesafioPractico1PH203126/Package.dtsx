@@ -11,21 +11,33 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="164"
-  DTS:VersionGUID="{690AC3DB-5C17-4CC0-A633-060814E51BB7}">
+  DTS:VersionBuild="174"
+  DTS:VersionGUID="{B44D03D1-8281-4EFF-BD4F-C11E68BDE2DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{3304D69C-F32D-404F-8B99-E698A1B89135}"
+      DTS:DTSID="{F30A03BC-1A89-47CA-8485-0F73F1CB41AD}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\MyShit\MyShit\U Virtual\dmd\recursos desafio1\test.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\MyShit\MyShit\U Virtual\dmd\recursos desafio1\Preferencias_Departamentales - Copy.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{16526CC2-97C9-4660-9541-2A2D25139BEB}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\MyShit\MyShit\U Virtual\dmd\recursos desafio1\Preferencias_Nacionales - Copy.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1837,6 +1849,153 @@
               </outputs>
             </component>
             <component
+              refId="Package\Data Flow Task\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Departamental$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Departamento]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Departamento"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Departamento]"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Departamento]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of Cantidad"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total Productos Vendidos]"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Cantidad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Max Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Max Cantidad"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Maximo de Ventas]"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Max Cantidad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Min Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Min Cantidad"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Minimo de Ventas]"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Min Cantidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Departamento]"
+                      dataType="wstr"
+                      length="255"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total Productos Vendidos]"
+                      dataType="wstr"
+                      length="255"
+                      name="Total Productos Vendidos" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Maximo de Ventas]"
+                      dataType="wstr"
+                      length="255"
+                      name="Maximo de Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Minimo de Ventas]"
+                      dataType="wstr"
+                      length="255"
+                      name="Minimo de Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F5]"
+                      dataType="wstr"
+                      length="255"
+                      name="F5" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\Multicast"
               componentClassID="Microsoft.Multicast"
               contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1859,9 +2018,16 @@
                 </output>
                 <output
                   refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]"
-                  dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 2"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 4]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 4"
                   synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -1903,10 +2069,10 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Multicast 1.Outputs[Multicast Output 3]"
+                  refId="Package\Data Flow Task\Multicast 1.Outputs[Multicast Output 1]"
                   dangling="true"
                   deleteOutputOnPathDetached="true"
-                  name="Multicast Output 3"
+                  name="Multicast Output 1"
                   synchronousInputId="Package\Data Flow Task\Multicast 1.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -1962,8 +2128,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Nacional Por Productos.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2070,7 +2236,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">'Nacional General$'</property>
+                  name="OpenRowset">'Nacional Totales$'</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2105,8 +2271,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Nacional Total Productos.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2158,10 +2324,10 @@
                       length="255"
                       name="Minimo de Ventas" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Nacional Total Productos.Inputs[Excel Destination Input].ExternalColumns[Total Clientes]"
+                      refId="Package\Data Flow Task\Nacional Total Productos.Inputs[Excel Destination Input].ExternalColumns[F4]"
                       dataType="wstr"
                       length="255"
-                      name="Total Clientes" />
+                      name="F4" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3879,16 +4045,6 @@
                       dataType="wstr"
                       length="255"
                       name="Total Vendidos" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\San Miguel Productos.Inputs[Excel Destination Input].ExternalColumns[Maximo de Producto Vendido]"
-                      dataType="wstr"
-                      length="255"
-                      name="Maximo de Producto Vendido" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\San Miguel Productos.Inputs[Excel Destination Input].ExternalColumns[Minimo de Producto Vendido]"
-                      dataType="wstr"
-                      length="255"
-                      name="Minimo de Producto Vendido" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4505,16 +4661,6 @@
                       dataType="wstr"
                       length="255"
                       name="Total Vendidos" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\San Salvador Productos.Inputs[Excel Destination Input].ExternalColumns[Maximo de Producto Vendido]"
-                      dataType="wstr"
-                      length="255"
-                      name="Maximo de Producto Vendido" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\San Salvador Productos.Inputs[Excel Destination Input].ExternalColumns[Minimo de Producto Vendido]"
-                      dataType="wstr"
-                      length="255"
-                      name="Minimo de Producto Vendido" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5131,16 +5277,6 @@
                       dataType="wstr"
                       length="255"
                       name="Total Vendidos" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Santa Ana Productos.Inputs[Excel Destination Input].ExternalColumns[Maximo de Producto Vendido]"
-                      dataType="wstr"
-                      length="255"
-                      name="Maximo de Producto Vendido" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Santa Ana Productos.Inputs[Excel Destination Input].ExternalColumns[Minimo de Producto Vendido]"
-                      dataType="wstr"
-                      length="255"
-                      name="Minimo de Producto Vendido" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5223,12 +5359,6 @@
                       cachedLength="10"
                       cachedName="Departamento"
                       lineageId="Package\Data Flow Task\Columna Departamento San Miguel.Outputs[Derived Column Output].Columns[Departamento]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod.Inputs[Aggregate Input 1].Columns[Copy of id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of id"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5330,33 +5460,6 @@
                           name="AggregationComparisonFlags">0</property>
                       </properties>
                     </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod.Outputs[Aggregate Output 1].Columns[Copy of id]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod.Outputs[Aggregate Output 1].Columns[Copy of id]"
-                      name="Copy of id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the type of aggregation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the string comparison options."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5416,12 +5519,6 @@
                       cachedLength="12"
                       cachedName="Departamento"
                       lineageId="Package\Data Flow Task\Columna Departamento San Salvador.Outputs[Derived Column Output].Columns[Departamento]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2.Inputs[Aggregate Input 1].Columns[Copy of id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of id"
-                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5523,33 +5620,6 @@
                           name="AggregationComparisonFlags">0</property>
                       </properties>
                     </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2.Outputs[Aggregate Output 1].Columns[Copy of id]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2.Outputs[Aggregate Output 1].Columns[Copy of id]"
-                      name="Copy of id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of id]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the type of aggregation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the string comparison options."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5609,12 +5679,6 @@
                       cachedLength="9"
                       cachedName="Departamento"
                       lineageId="Package\Data Flow Task\Columna Departamento Santa Ana.Outputs[Derived Column Output].Columns[Departamento]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3.Inputs[Aggregate Input 1].Columns[Copy of id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of id"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[Copy of id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5701,33 +5765,6 @@
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
                           name="AggregationColumnId">#{Package\Data Flow Task\Columna Departamento Santa Ana.Outputs[Derived Column Output].Columns[Departamento]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the type of aggregation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the string comparison options."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3.Outputs[Aggregate Output 1].Columns[Copy of id]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3.Outputs[Aggregate Output 1].Columns[Copy of id]"
-                      name="Copy of id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[Copy of id]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -5889,6 +5926,199 @@
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
                           name="AggregationColumnId">#{Package\Data Flow Task\Cantidad Descendente Nacional.Outputs[Sort Output].Columns[Min Cantidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Total, Maximo y Minimo de Todos los productos Por Departamento"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Inputs[Aggregate Input 1].Columns[Max Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Max Cantidad"
+                      cachedPrecision="18"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Max Cantidad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Inputs[Aggregate Input 1].Columns[Min Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Min Cantidad"
+                      cachedPrecision="18"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Min Cantidad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Inputs[Aggregate Input 1].Columns[Departamento]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Departamento"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Departamento]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Inputs[Aggregate Input 1].Columns[Copy of Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of Cantidad"
+                      cachedPrecision="18"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Cantidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Max Cantidad]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Max Cantidad]"
+                      name="Max Cantidad"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Max Cantidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Min Cantidad]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Min Cantidad]"
+                      name="Min Cantidad"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Min Cantidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Departamento]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Departamento]"
+                      name="Departamento">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Departamento]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Cantidad]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Cantidad]"
+                      name="Copy of Cantidad"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Cantidad]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6091,6 +6321,220 @@
               </outputs>
             </component>
             <component
+              refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Total, Maximo y Minimo por Producto Por Departamento"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Inputs[Aggregate Input 1].Columns[Copy of Cantidad]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of Cantidad"
+                      cachedPrecision="18"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of Cantidad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Inputs[Aggregate Input 1].Columns[Copy of Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Producto"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of Producto]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Inputs[Aggregate Input 1].Columns[Departamento]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Departamento"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Departamento]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Cantidad]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Cantidad]"
+                      name="Copy of Cantidad"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of Cantidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Producto]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Copy of Producto]"
+                      name="Copy of Producto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of Producto]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Max Cantidad]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Max Cantidad]"
+                      name="Max Cantidad"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of Cantidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Min Cantidad]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Min Cantidad]"
+                      name="Min Cantidad"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of Cantidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">6</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Departamento]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1].Columns[Departamento]"
+                      name="Departamento">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Departamento]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\Union All"
               componentClassID="Microsoft.UnionAll"
               contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -6145,20 +6589,6 @@
                           name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Departamento]}</property>
                       </properties>
                     </inputColumn>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 3].Columns[Copy of id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of id"
-                      lineageId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod.Outputs[Aggregate Output 1].Columns[Copy of id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of id]}</property>
-                      </properties>
-                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -6207,20 +6637,6 @@
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Departamento]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[Copy of id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of id"
-                      lineageId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2.Outputs[Aggregate Output 1].Columns[Copy of id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of id]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -6273,20 +6689,6 @@
                           name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Departamento]}</property>
                       </properties>
                     </inputColumn>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[Copy of id]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of id"
-                      lineageId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3.Outputs[Aggregate Output 1].Columns[Copy of id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of id]}</property>
-                      </properties>
-                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -6321,12 +6723,6 @@
                       length="12"
                       lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Departamento]"
                       name="Departamento" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of id]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[Copy of id]"
-                      name="Copy of id" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -6340,45 +6736,50 @@
               name="Aggregate Output 1"
               startId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod.Outputs[Aggregate Output 1]" />
             <path
+              refId="Package\Data Flow Task.Paths[Aggregate Output 15]"
+              endId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Inputs[Aggregate Input 1]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Outputs[Aggregate Output 1]" />
+            <path
               refId="Package\Data Flow Task.Paths[Aggregate Output 14]"
+              endId="Package\Data Flow Task\Union All.Inputs[Union All Input 1]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Aggregate Output 16]"
+              endId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Aggregate Output 12]"
+              endId="Package\Data Flow Task\Cantidad Descendente Nacional.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow Task\Total, Maximo y Minimo por Producto.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Aggregate Output 11]"
               endId="Package\Data Flow Task\Nacional Total Productos.Inputs[Excel Destination Input]"
               name="Aggregate Output 1"
               startId="Package\Data Flow Task\Total, Maximo y Minimo de todos los Productos.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\Data Flow Task.Paths[Aggregate Output 13]"
-              endId="Package\Data Flow Task\Cantidad Descendente Nacional.Inputs[Sort Input]"
-              name="Aggregate Output 1"
-              startId="Package\Data Flow Task\Total, Maximo y Minimo por Producto.Outputs[Aggregate Output 1]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Aggregate Output 12]"
               endId="Package\Data Flow Task\Union All.Inputs[Union All Input 2]"
               name="Aggregate Output 1"
               startId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3.Outputs[Aggregate Output 1]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Aggregate Output 11]"
-              endId="Package\Data Flow Task\Union All.Inputs[Union All Input 1]"
-              name="Aggregate Output 1"
-              startId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\Data Flow Task.Paths[Data Conversion Output]"
               endId="Package\Data Flow Task\Columna Departamento San Salvador.Inputs[Derived Column Input]"
               name="Data Conversion Output"
               startId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Data Conversion Output2]"
+              refId="Package\Data Flow Task.Paths[Data Conversion Output1]"
               endId="Package\Data Flow Task\Columna Departamento San Miguel.Inputs[Derived Column Input]"
               name="Data Conversion Output"
               startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Data Conversion Output1]"
+              refId="Package\Data Flow Task.Paths[Data Conversion Output2]"
               endId="Package\Data Flow Task\Columna Departamento Santa Ana.Inputs[Derived Column Input]"
               name="Data Conversion Output"
               startId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output2]"
-              endId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3.Inputs[Aggregate Input 1]"
-              name="Derived Column Output"
-              startId="Package\Data Flow Task\Columna Departamento Santa Ana.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Derived Column Output]"
               endId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod.Inputs[Aggregate Input 1]"
@@ -6386,6 +6787,11 @@
               startId="Package\Data Flow Task\Columna Departamento San Miguel.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Derived Column Output1]"
+              endId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Columna Departamento Santa Ana.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output2]"
               endId="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2.Inputs[Aggregate Input 1]"
               name="Derived Column Output"
               startId="Package\Data Flow Task\Columna Departamento San Salvador.Outputs[Derived Column Output]" />
@@ -6415,6 +6821,11 @@
               name="Multicast Output 2"
               startId="Package\Data Flow Task\Multicast 1.Outputs[Multicast Output 2]" />
             <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 21]"
+              endId="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento.Inputs[Aggregate Input 1]"
+              name="Multicast Output 2"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]" />
+            <path
               refId="Package\Data Flow Task.Paths[Multicast Output 3]"
               endId="Package\Data Flow Task\Total, Maximo y Minimo por Producto.Inputs[Aggregate Input 1]"
               name="Multicast Output 3"
@@ -6440,7 +6851,7 @@
               name="Santa Ana"
               startId="Package\Data Flow Task\Conditional Split.Outputs[Santa Ana]" />
             <path
-              refId="Package\Data Flow Task.Paths[Sort Output2]"
+              refId="Package\Data Flow Task.Paths[Sort Output]"
               endId="Package\Data Flow Task\San Salvador Productos.Inputs[Excel Destination Input]"
               name="Sort Output"
               startId="Package\Data Flow Task\Descendiente 1.Outputs[Sort Output]" />
@@ -6450,12 +6861,12 @@
               name="Sort Output"
               startId="Package\Data Flow Task\Descendiente.Outputs[Sort Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Sort Output3]"
+              refId="Package\Data Flow Task.Paths[Sort Output2]"
               endId="Package\Data Flow Task\Santa Ana Productos.Inputs[Excel Destination Input]"
               name="Sort Output"
               startId="Package\Data Flow Task\Descendiente 2.Outputs[Sort Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Sort Output]"
+              refId="Package\Data Flow Task.Paths[Sort Output3]"
               endId="Package\Data Flow Task\Multicast 1.Inputs[Multicast Input 1]"
               name="Sort Output"
               startId="Package\Data Flow Task\Cantidad Descendente Nacional.Outputs[Sort Output]" />
@@ -6464,6 +6875,11 @@
               endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
               name="Union All Output 1"
               startId="Package\Data Flow Task\Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Unpivot Output2]"
+              endId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Unpivot Output"
+              startId="Package\Data Flow Task\Normalizacion San Salvador.Outputs[Unpivot Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Unpivot Output]"
               endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
@@ -6474,11 +6890,6 @@
               endId="Package\Data Flow Task\Data Conversion 2.Inputs[Data Conversion Input]"
               name="Unpivot Output"
               startId="Package\Data Flow Task\Normalizacion Santa Ana.Outputs[Unpivot Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Unpivot Output2]"
-              endId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]"
-              name="Unpivot Output"
-              startId="Package\Data Flow Task\Normalizacion San Salvador.Outputs[Unpivot Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -6507,11 +6918,99 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Data Flow Task\San Salvador"
+          TopLeft="759,30" />
+        <NodeLayout
+          Size="277,42"
+          Id="Package\Data Flow Task\Suma Agrupada por Departamento y Prod"
+          TopLeft="312,342" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Data Flow Task\San Miguel"
+          TopLeft="540.444444444444,29.4444444444444" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task\Descendiente 1"
+          TopLeft="371,584" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Data Flow Task\Nacional Total Productos"
+          TopLeft="721,705" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3"
+          TopLeft="991.888888888889,349.444444444444" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Data Flow Task\Santa Ana Productos"
+          TopLeft="151,651" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Data Flow Task\San Salvador Productos"
+          TopLeft="137,580" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Data Flow Task\Normalizacion San Salvador"
+          TopLeft="706.888888888889,100.444444444444" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Data Flow Task\San Miguel Productos"
+          TopLeft="142,509" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Data Flow Task\Descendiente"
+          TopLeft="383,467" />
         <NodeLayout
           Size="187,42"
           Id="Package\Data Flow Task\Nacional Por Productos"
-          TopLeft="913,647" />
+          TopLeft="879,644" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Data Flow Task\Union All"
+          TopLeft="766,427" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task\Conditional Split"
+          TopLeft="595,578" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Data Flow Task\Multicast 1"
+          TopLeft="1259,645" />
+        <NodeLayout
+          Size="393,42"
+          Id="Package\Data Flow Task\Total, Maximo y Minimo de Todos los productos Por Departamento"
+          TopLeft="453,825" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\Data Flow Task\Columna Departamento Santa Ana"
+          TopLeft="984.888888888889,267.444444444444" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Data Flow Task\Data Conversion 2"
+          TopLeft="973.888888888889,180.444444444444" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="773,518" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2"
+          TopLeft="658.888888888889,342.444444444444" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Data Flow Task\Columna Departamento San Salvador"
+          TopLeft="675.888888888889,267.444444444444" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Data Flow Task\Santa Ana"
+          TopLeft="974.888888888889,32.3333333333333" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Data Flow Task\Normalizacion Santa Ana"
+          TopLeft="956.888888888889,98.4444444444444" />
         <NodeLayout
           Size="245,42"
           Id="Package\Data Flow Task\Columna Departamento San Miguel"
@@ -6521,81 +7020,33 @@
           Id="Package\Data Flow Task\Data Conversion 1"
           TopLeft="745.888888888889,184.444444444444" />
         <NodeLayout
-          Size="228,42"
-          Id="Package\Data Flow Task\Cantidad Descendente Nacional"
-          TopLeft="1128,501" />
+          Size="301,42"
+          Id="Package\Data Flow Task\Total, Maximo y Minimo de todos los Productos"
+          TopLeft="913,762" />
         <NodeLayout
-          Size="286,42"
-          Id="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 2"
-          TopLeft="658.888888888889,342.444444444444" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Data Flow Task\San Miguel"
-          TopLeft="540.444444444444,29.4444444444444" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Data Flow Task\Normalizacion Santa Ana"
-          TopLeft="956.888888888889,98.4444444444444" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Data Flow Task\Santa Ana Productos"
-          TopLeft="151,651" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Data Flow Task\San Salvador"
-          TopLeft="759,30" />
-        <NodeLayout
-          Size="286,42"
-          Id="Package\Data Flow Task\Suma Agrupada por Departamento y Prod 3"
-          TopLeft="991.888888888889,349.444444444444" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\Data Flow Task\San Salvador Productos"
-          TopLeft="137,580" />
-        <NodeLayout
-          Size="120,42"
-          Id="Package\Data Flow Task\Multicast"
-          TopLeft="773,518" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Data Flow Task\Data Conversion"
-          TopLeft="497,187" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Data Flow Task\Data Conversion 2"
-          TopLeft="973.888888888889,180.444444444444" />
-        <NodeLayout
-          Size="242,42"
-          Id="Package\Data Flow Task\Columna Departamento Santa Ana"
-          TopLeft="984.888888888889,267.444444444444" />
+          Size="345,42"
+          Id="Package\Data Flow Task\Total, Maximo y Minimo por Producto Por Departamento"
+          TopLeft="405,755" />
         <NodeLayout
           Size="199,42"
           Id="Package\Data Flow Task\Normalizacion San Miguel"
           TopLeft="438,103" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Data Flow Task\San Miguel Productos"
-          TopLeft="142,509" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Data Flow Task\Santa Ana"
-          TopLeft="974.888888888889,32.3333333333333" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Data Flow Task\Normalizacion San Salvador"
-          TopLeft="706.888888888889,100.444444444444" />
+          Size="151,42"
+          Id="Package\Data Flow Task\Descendiente 2"
+          TopLeft="373,655" />
         <NodeLayout
           Size="255,42"
-          Id="Package\Data Flow Task\Columna Departamento San Salvador"
-          TopLeft="675.888888888889,267.444444444444" />
+          Id="Package\Data Flow Task\Total, Maximo y Minimo por Producto"
+          TopLeft="908,562" />
         <NodeLayout
-          Size="121,42"
-          Id="Package\Data Flow Task\Union All"
-          TopLeft="766,427" />
+          Size="156,42"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="497,187" />
         <NodeLayout
-          Size="277,42"
-          Id="Package\Data Flow Task\Suma Agrupada por Departamento y Prod"
-          TopLeft="312,342" />
+          Size="228,42"
+          Id="Package\Data Flow Task\Cantidad Descendente Nacional"
+          TopLeft="1128,501" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Unpivot Output2]"
           TopLeft="811.388888888889,142.444444444444">
@@ -6709,6 +7160,366 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output3]"
+          TopLeft="1242,543">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,102"
+              Start="0,0"
+              End="82,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="4,51" />
+                  <mssgle:LineSegment
+                    End="78,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78,51"
+                    Point2="82,51"
+                    Point3="82,55" />
+                  <mssgle:LineSegment
+                    End="82,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output2]"
+          TopLeft="373,674">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45,0"
+              Start="0,0"
+              End="-37.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-37.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="383,488">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61,42"
+              Start="0,0"
+              End="-53.5,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-26.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.5,0"
+                    Point2="-30.5,0"
+                    Point3="-30.5,4" />
+                  <mssgle:LineSegment
+                    End="-30.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,38"
+                    Point2="-30.5,42"
+                    Point3="-34.5,42" />
+                  <mssgle:LineSegment
+                    End="-53.5,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="371,603">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44,0"
+              Start="0,0"
+              End="-36.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Santa Ana]"
+          TopLeft="672.5,620">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-224,35"
+              Start="0,0"
+              End="-224,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="-4,17.5" />
+                  <mssgle:LineSegment
+                    End="-220,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-220,17.5"
+                    Point2="-224,17.5"
+                    Point3="-224,21.5" />
+                  <mssgle:LineSegment
+                    End="-224,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.9740234375,22.5,45.948046875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[San Salvador]"
+          TopLeft="595,602">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73,0"
+              Start="0,0"
+              End="-65.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-65.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.25435546875,5,59.0087109375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[San Miguel]"
+          TopLeft="672.5,578">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-218.5,-69"
+              Start="0,0"
+              End="-218.5,-61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-30.5"
+                    Point2="0,-34.5"
+                    Point3="-4,-34.5" />
+                  <mssgle:LineSegment
+                    End="-214.5,-34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-214.5,-34.5"
+                    Point2="-218.5,-34.5"
+                    Point3="-218.5,-38.5" />
+                  <mssgle:LineSegment
+                    End="-218.5,-61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-133.81279296875,-29.5,49.1255859375,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 4]"
+          TopLeft="1259,665.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-193,0"
+              Start="0,0"
+              End="-185.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-185.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 3]"
+          TopLeft="893,539">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.333333333333,23"
+              Start="0,0"
+              End="101.333333333333,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.3333333333334,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.3333333333334,0"
+                    Point2="101.333333333333,0"
+                    Point3="101.333333333333,4" />
+                  <mssgle:LineSegment
+                    End="101.333333333333,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 21]"
+          TopLeft="833,560">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-255.5,195"
+              Start="0,0"
+              End="-255.5,187.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,93.5"
+                    Point2="0,97.5"
+                    Point3="-4,97.5" />
+                  <mssgle:LineSegment
+                    End="-251.5,97.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-251.5,97.5"
+                    Point2="-255.5,97.5"
+                    Point3="-255.5,101.5" />
+                  <mssgle:LineSegment
+                    End="-255.5,187.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 2]"
+          TopLeft="1303.66666666667,687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-240.166666666667,75"
+              Start="0,0"
+              End="-240.166666666667,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5471124620061" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5471124620061"
+                    Point2="0,30.5471124620061"
+                    Point3="-4,30.5471124620061" />
+                  <mssgle:LineSegment
+                    End="-236.166666666667,30.5471124620061" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-236.166666666667,30.5471124620061"
+                    Point2="-240.166666666667,30.5471124620061"
+                    Point3="-240.166666666667,34.5471124620061" />
+                  <mssgle:LineSegment
+                    End="-240.166666666667,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 1]"
+          TopLeft="773,539">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23,60"
+              Start="0,0"
+              End="-15.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-7.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.5,0"
+                    Point2="-11.5,0"
+                    Point3="-11.5,4" />
+                  <mssgle:LineSegment
+                    End="-11.5,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,56"
+                    Point2="-11.5,60"
+                    Point3="-15.5,60" />
+                  <mssgle:LineSegment
+                    End="-15.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output2]"
           TopLeft="605.444444444444,71.4444444444444">
           <EdgeLayout.Curve>
@@ -6812,6 +7623,28 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output2]"
+          TopLeft="802.638888888889,309.444444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
           TopLeft="1105.88888888889,309.444444444444">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6836,28 +7669,6 @@
                     Point3="29,24" />
                   <mssgle:LineSegment
                     End="29,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="802.638888888889,309.444444444444">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33"
-              Start="0,0"
-              End="0,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6902,40 +7713,6 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output2]"
-          TopLeft="575,229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-134.5,36"
-              Start="0,0"
-              End="-134.5,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="-4,18" />
-                  <mssgle:LineSegment
-                    End="-130.5,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-130.5,18"
-                    Point2="-134.5,18"
-                    Point3="-134.5,22" />
-                  <mssgle:LineSegment
-                    End="-134.5,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
           TopLeft="1051.88888888889,222.444444444444">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6960,6 +7737,40 @@
                     Point3="54.0000000000001,26.5" />
                   <mssgle:LineSegment
                     End="54.0000000000001,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
+          TopLeft="575,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134.5,36"
+              Start="0,0"
+              End="-134.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="-4,18" />
+                  <mssgle:LineSegment
+                    End="-130.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130.5,18"
+                    Point2="-134.5,18"
+                    Point3="-134.5,22" />
+                  <mssgle:LineSegment
+                    End="-134.5,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7002,30 +7813,156 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="255,42"
-          Id="Package\Data Flow Task\Total, Maximo y Minimo por Producto"
-          TopLeft="908,562" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Multicast Output 3]"
-          TopLeft="893,539">
+          Id="Package\Data Flow Task.Paths[Aggregate Output 15]"
+          TopLeft="577.5,797">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="101.333333333333,23"
+              EndConnector="72,28"
               Start="0,0"
-              End="101.333333333333,15.5">
+              End="72,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="97.3333333333334,0" />
+                    End="0,10" />
                   <mssgle:CubicBezierSegment
-                    Point1="97.3333333333334,0"
-                    Point2="101.333333333333,0"
-                    Point3="101.333333333333,4" />
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="4,14" />
                   <mssgle:LineSegment
-                    End="101.333333333333,15.5" />
+                    End="68,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68,14"
+                    Point2="72,14"
+                    Point3="72,18" />
+                  <mssgle:LineSegment
+                    End="72,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 14]"
+          TopLeft="801.888888888889,384.444444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.611111111111,42.555555555556"
+              Start="0,0"
+              End="24.611111111111,35.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.277777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.277777777778"
+                    Point2="0,21.277777777778"
+                    Point3="4,21.277777777778" />
+                  <mssgle:LineSegment
+                    End="20.611111111111,21.277777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.611111111111,21.277777777778"
+                    Point2="24.611111111111,21.277777777778"
+                    Point3="24.611111111111,25.277777777778" />
+                  <mssgle:LineSegment
+                    End="24.611111111111,35.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 13]"
+          TopLeft="1134.88888888889,391.444444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-280.138888888889,35.555555555556"
+              Start="0,0"
+              End="-280.138888888889,28.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1925726265352" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.1925726265352"
+                    Point2="0,23.1925726265352"
+                    Point3="-4,23.1925726265352" />
+                  <mssgle:LineSegment
+                    End="-276.138888888889,23.1925726265352" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-276.138888888889,23.1925726265352"
+                    Point2="-280.138888888889,23.1925726265352"
+                    Point3="-280.138888888889,27.1925726265352" />
+                  <mssgle:LineSegment
+                    End="-280.138888888889,28.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 12]"
+          TopLeft="1076.66666666667,562">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.3333333333333,-40"
+              Start="0,0"
+              End="43.8333333333333,-40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-36"
+                    Point2="0,-40"
+                    Point3="4,-40" />
+                  <mssgle:LineSegment
+                    End="43.8333333333333,-40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 11]"
+          TopLeft="913,783">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-94,-36"
+              Start="0,0"
+              End="-94,-28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-90,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-90,0"
+                    Point2="-94,0"
+                    Point3="-94,-4" />
+                  <mssgle:LineSegment
+                    End="-94,-28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7068,442 +8005,24 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 11]"
-          TopLeft="801.888888888889,384.444444444444">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="24.611111111111,42.555555555556"
-              Start="0,0"
-              End="24.611111111111,35.055555555556">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.277777777778" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.277777777778"
-                    Point2="0,21.277777777778"
-                    Point3="4,21.277777777778" />
-                  <mssgle:LineSegment
-                    End="20.611111111111,21.277777777778" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.611111111111,21.277777777778"
-                    Point2="24.611111111111,21.277777777778"
-                    Point3="24.611111111111,25.277777777778" />
-                  <mssgle:LineSegment
-                    End="24.611111111111,35.055555555556" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 12]"
-          TopLeft="1134.88888888889,391.444444444444">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-280.138888888889,35.555555555556"
-              Start="0,0"
-              End="-280.138888888889,28.055555555556">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.1925726265352" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.1925726265352"
-                    Point2="0,23.1925726265352"
-                    Point3="-4,23.1925726265352" />
-                  <mssgle:LineSegment
-                    End="-276.138888888889,23.1925726265352" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-276.138888888889,23.1925726265352"
-                    Point2="-280.138888888889,23.1925726265352"
-                    Point3="-280.138888888889,27.1925726265352" />
-                  <mssgle:LineSegment
-                    End="-280.138888888889,28.055555555556" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 13]"
-          TopLeft="1076.66666666667,562">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="51.3333333333333,-40"
-              Start="0,0"
-              End="43.8333333333333,-40">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-36" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-36"
-                    Point2="0,-40"
-                    Point3="4,-40" />
-                  <mssgle:LineSegment
-                    End="43.8333333333333,-40" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="130,42"
-          Id="Package\Data Flow Task\Multicast 1"
-          TopLeft="1171,658" />
+          Size="159,42"
+          Id="Package\Data Flow Task\Excel Destination"
+          TopLeft="248.888888888889,826.666666666667" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="1239,543">
+          Id="Package\Data Flow Task.Paths[Aggregate Output 16]"
+          TopLeft="453,846.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,115"
+              EndConnector="-45.1111111111111,0"
               Start="0,0"
-              End="0,107.5">
+              End="-37.6111111111111,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,107.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="301,42"
-          Id="Package\Data Flow Task\Total, Maximo y Minimo de todos los Productos"
-          TopLeft="936,727" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Multicast Output 2]"
-          TopLeft="1236,700">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-149.5,27"
-              Start="0,0"
-              End="-149.5,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.5"
-                    Point2="0,13.5"
-                    Point3="-4,13.5" />
-                  <mssgle:LineSegment
-                    End="-145.5,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-145.5,13.5"
-                    Point2="-149.5,13.5"
-                    Point3="-149.5,17.5" />
-                  <mssgle:LineSegment
-                    End="-149.5,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Data Flow Task\Nacional Total Productos"
-          TopLeft="654,722" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 14]"
-          TopLeft="936,745.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-86,0"
-              Start="0,0"
-              End="-78.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-78.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Multicast Output 4]"
-          TopLeft="1171,679">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-71,-11"
-              Start="0,0"
-              End="-63.5,-11">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-31.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-31.5,0"
-                    Point2="-35.5,0"
-                    Point3="-35.5,-4" />
-                  <mssgle:LineSegment
-                    End="-35.5,-7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-35.5,-7"
-                    Point2="-35.5,-11"
-                    Point3="-39.5,-11" />
-                  <mssgle:LineSegment
-                    End="-63.5,-11" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task\Conditional Split"
-          TopLeft="595,578" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Multicast Output 1]"
-          TopLeft="773,539">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-23,60"
-              Start="0,0"
-              End="-15.5,60">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-7.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.5,0"
-                    Point2="-11.5,0"
-                    Point3="-11.5,4" />
-                  <mssgle:LineSegment
-                    End="-11.5,56" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11.5,56"
-                    Point2="-11.5,60"
-                    Point3="-15.5,60" />
-                  <mssgle:LineSegment
-                    End="-15.5,60" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Data Flow Task\Descendiente"
-          TopLeft="383,467" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task\Descendiente 1"
-          TopLeft="371,584" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task\Descendiente 2"
-          TopLeft="373,655" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[San Miguel]"
-          TopLeft="672.5,578">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-218.5,-69"
-              Start="0,0"
-              End="-218.5,-61.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-30.5"
-                    Point2="0,-34.5"
-                    Point3="-4,-34.5" />
-                  <mssgle:LineSegment
-                    End="-214.5,-34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-214.5,-34.5"
-                    Point2="-218.5,-34.5"
-                    Point3="-218.5,-38.5" />
-                  <mssgle:LineSegment
-                    End="-218.5,-61.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-133.81279296875,-29.5,49.1255859375,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output1]"
-          TopLeft="383,488">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-61,42"
-              Start="0,0"
-              End="-53.5,42">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-26.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-26.5,0"
-                    Point2="-30.5,0"
-                    Point3="-30.5,4" />
-                  <mssgle:LineSegment
-                    End="-30.5,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.5,38"
-                    Point2="-30.5,42"
-                    Point3="-34.5,42" />
-                  <mssgle:LineSegment
-                    End="-53.5,42" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[San Salvador]"
-          TopLeft="595,602">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-73,0"
-              Start="0,0"
-              End="-65.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-65.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-62.25435546875,5,59.0087109375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output2]"
-          TopLeft="371,603">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-44,0"
-              Start="0,0"
-              End="-36.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-36.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Santa Ana]"
-          TopLeft="672.5,620">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-224,35"
-              Start="0,0"
-              End="-224,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.5"
-                    Point2="0,17.5"
-                    Point3="-4,17.5" />
-                  <mssgle:LineSegment
-                    End="-220,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-220,17.5"
-                    Point2="-224,17.5"
-                    Point3="-224,21.5" />
-                  <mssgle:LineSegment
-                    End="-224,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.9740234375,22.5,45.948046875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output3]"
-          TopLeft="373,674">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-45,0"
-              Start="0,0"
-              End="-37.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-37.5,0" />
+                    End="-37.6111111111111,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7516,7 +8035,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Nacional Por Productos">
+    design-time-name="Package\Data Flow Task\Nacional Total Productos">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7568,7 +8087,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Nacional Total Productos">
+    design-time-name="Package\Data Flow Task\Nacional Por Productos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
