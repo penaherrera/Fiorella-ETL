@@ -22,12 +22,14 @@ Dentro de esta carpeta encontrarás los archivos tipo CSV que corresponden a cad
 
 *Parte2*
 Luego de ubicar los archivos correspondientes, se procedera a configurar los conection manager de cada flat source que se encuentra al inicio del flujo.
+
 ![alt text](image.png)
 
 ![alt text](image-1.png)
 
 *Parte3*
 De igual manera para los archivos excel, se procedera a conectar el archivo Excel correspondiente, guiarse por el nombre de los componentes Excel Destination.
+
 ![alt text](image-2.png)
 
 
@@ -43,8 +45,12 @@ Nacional Total Productos, Mapping con Sheet "Nacional Totales"
 
 Para observar como funciona el programa, se procederá a ejecutar el parquete al clickear 
 "Excecute Package" dentro de Solution Explorer a su derecha
+
 ![alt text](image-3.png)
 
 Luego de que el programa se ejecute, comprobar los resultados en las hojas de excel.
 
 Nota: La carpeta Muestras dentro de Recursos son los archivos Excel con los resultados del análisis de datos, pueden utilizarse para comprobar la respuesta con los originales que se encuentran en la misma carpeta de recursos.
+
+## Desarrollador:
+* Carlos Francisco Peña Herrera
